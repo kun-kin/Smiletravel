@@ -1,0 +1,41 @@
+.footer {
+    background-color: var(--primary-color);
+    padding: 30px 0 30px;
+    border-top: 1px solid rgba(0, 0, 0, .05);
+    color: #f1f1f1;
+    &-head {
+        font-size: 2rem;
+        line-height: 1.6;
+        color: #fff;
+        text-transform: uppercase;
+        @media(max-width: 576px) {
+            font-size: 1.6rem;
+        }
+    }
+    &-col {
+        p {
+            margin-bottom: 10px;
+            color: #f1f1f1;
+            img {
+                margin-bottom: 20px;
+            }
+        }
+        a {
+            color: inherit;
+        }
+        ul {
+            li {
+                a {
+                    font-size: 1.4rem;
+                    color: #f1f1f1;
+                }
+            }
+        }
+    }
+    .copyright {
+        padding-top: 20px;
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
