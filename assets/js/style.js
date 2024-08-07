@@ -77,28 +77,58 @@ $(document).ready(function() {
     });
 
 });
+$(document).on("click", ".change-number .btn-click", function() {
+    var qty = $(this).parents(".change-number").find(".number");
+    var val = parseInt(qty.text());
+    if (Number.isNaN(val)) {
+        val = 0;
+    }
+    if ($(this).hasClass("plus")) {
+        qty.text(parseInt(val + 1));
+    } else {
+        if (val >= 1) {
+            qty.text(parseInt(val - 1));
+        }
+    }
+});
+$('.change-number .plus').click(function() {
+    adult = parseInt($("#adult").text());
+    children = parseInt($("#children").text());
 
-$('.banner-slider').flickity({
-    cellAlign: 'center',
-    imagesLoaded: true,
-    lazyLoad: 1,
-    freeScroll: true,
-    wrapAround: true,
-    autoPlay: 3000,
-    pauseAutoPlayOnHover: false,
-    prevNextButtons: true,
-    contain: true,
-    adaptiveHeight: true,
-    dragThreshold: 10,
-    percentPosition: true,
-    pageDots: false,
-    rightToLeft: false,
-    draggable: true,
-    selectedAttraction: 0.1,
-    parallax: 0,
-    friction: 0.6
+    baby = parseInt($("#baby").text());
+
+    if (adult + children + baby + 1 > parseInt('10')) {
+        alert("Số khách tối đa: 10");
+        event.preventDefault();
+        return false;
+    }
 });
 
+$('.change-number .minus').click(function() {
+    adult = parseInt($("#adult").text());
+    children = parseInt($("#children").text());
+
+    baby = parseInt($("#baby").text());
+
+    if (adult + children + baby - 1 <= 0) {
+        alert("Số khách yêu cầu tối thiểu 1");
+        event.preventDefault();
+        return false;
+    }
+
+});
+
+$('.banner-slider').owlCarousel({
+    loop: true,
+    margin: 0,
+    responsiveClass: true,
+    nav: true,
+    navText: ["<i class='fa-solid fa-chevron-left'></i>", "<i class='fa-solid fa-chevron-right'></i>"],
+    dots: false,
+    items: 1,
+    autoplay: true,
+    autoplayTimeout: 3000,
+});
 $('.brand-slider').owlCarousel({
     loop: true,
     margin: 20,
