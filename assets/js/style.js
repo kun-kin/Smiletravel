@@ -117,7 +117,7 @@ $('.change-number .minus').click(function() {
     }
 
 });
-
+$(".hasDatepicker").flatpickr({ minDate: 0, dateFormat: 'd/m/Y' });
 $('.banner-slider').owlCarousel({
     loop: true,
     margin: 0,
